@@ -8260,8 +8260,8 @@ var _elm_lang$html$Html_Events$Options = F2(
 		return {stopPropagation: a, preventDefault: b};
 	});
 
-var _user$project$Main$makeIngredientRow = F2(
-	function (name, weight) {
+var _user$project$Main$makeIngredientRow = F3(
+	function (name, percent, weight) {
 		return A2(
 			_elm_lang$html$Html$li,
 			{ctor: '[]'},
@@ -8293,7 +8293,7 @@ var _user$project$Main$makeIngredientRow = F2(
 							_0: _elm_lang$html$Html_Attributes$style(
 								{
 									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'float', _1: 'right'},
+									_0: {ctor: '_Tuple2', _0: 'float', _1: 'center'},
 									_1: {ctor: '[]'}
 								}),
 							_1: {ctor: '[]'}
@@ -8303,26 +8303,50 @@ var _user$project$Main$makeIngredientRow = F2(
 							_0: _elm_lang$html$Html$text(
 								A2(
 									_elm_lang$core$Basics_ops['++'],
-									_elm_lang$core$Basics$toString(weight),
-									'g')),
+									_elm_lang$core$Basics$toString(percent),
+									'%')),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$div,
+							_elm_lang$html$Html$p,
 							{
 								ctor: '::',
 								_0: _elm_lang$html$Html_Attributes$style(
 									{
 										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'clear', _1: 'both'},
+										_0: {ctor: '_Tuple2', _0: 'float', _1: 'right'},
 										_1: {ctor: '[]'}
 									}),
 								_1: {ctor: '[]'}
 							},
-							{ctor: '[]'}),
-						_1: {ctor: '[]'}
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(weight),
+										'g')),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$div,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$style(
+										{
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'clear', _1: 'both'},
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								},
+								{ctor: '[]'}),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			});
@@ -8338,10 +8362,13 @@ var _user$project$Main$calcWeight = F2(
 var _user$project$Main$makeRow = F2(
 	function (flour, totalWeightInGrams) {
 		var weight = A2(_user$project$Main$calcWeight, flour, totalWeightInGrams);
-		return A2(
+		return A3(
 			_user$project$Main$makeIngredientRow,
 			function (_) {
 				return _.name;
+			}(flour),
+			function (_) {
+				return _.weight;
 			}(flour),
 			weight);
 	});
@@ -8362,27 +8389,36 @@ var _user$project$Main$getIngredients = function (model) {
 		function (_) {
 			return _.flour;
 		}(model));
-	var water = A2(
+	var water = A3(
 		_user$project$Main$makeIngredientRow,
 		'Water',
+		function (_) {
+			return _.water;
+		}(model),
 		A2(
 			_user$project$Main$bakersPercentage,
 			function (_) {
 				return _.water;
 			}(model),
 			flourWeight));
-	var salt = A2(
+	var salt = A3(
 		_user$project$Main$makeIngredientRow,
 		'Salt',
+		function (_) {
+			return _.salt;
+		}(model),
 		A2(
 			_user$project$Main$bakersPercentage,
 			function (_) {
 				return _.salt;
 			}(model),
 			flourWeight));
-	var sourdough = A2(
+	var sourdough = A3(
 		_user$project$Main$makeIngredientRow,
 		'Sourdough',
+		function (_) {
+			return _.sourdough;
+		}(model),
 		A2(
 			_user$project$Main$bakersPercentage,
 			function (_) {
