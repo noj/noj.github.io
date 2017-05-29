@@ -8262,6 +8262,16 @@ var _elm_lang$html$Html_Events$Options = F2(
 
 var _user$project$Main$makeIngredientRow = F3(
 	function (name, percent, weight) {
+		var rightText = A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(percent),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				'% | ',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(weight),
+					'g')));
 		return A2(
 			_elm_lang$html$Html$li,
 			{ctor: '[]'},
@@ -8293,60 +8303,32 @@ var _user$project$Main$makeIngredientRow = F3(
 							_0: _elm_lang$html$Html_Attributes$style(
 								{
 									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'float', _1: 'center'},
+									_0: {ctor: '_Tuple2', _0: 'float', _1: 'right'},
 									_1: {ctor: '[]'}
 								}),
 							_1: {ctor: '[]'}
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text(
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									_elm_lang$core$Basics$toString(percent),
-									'%')),
+							_0: _elm_lang$html$Html$text(rightText),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$p,
+							_elm_lang$html$Html$div,
 							{
 								ctor: '::',
 								_0: _elm_lang$html$Html_Attributes$style(
 									{
 										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'float', _1: 'right'},
+										_0: {ctor: '_Tuple2', _0: 'clear', _1: 'both'},
 										_1: {ctor: '[]'}
 									}),
 								_1: {ctor: '[]'}
 							},
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html$text(
-									A2(
-										_elm_lang$core$Basics_ops['++'],
-										_elm_lang$core$Basics$toString(weight),
-										'g')),
-								_1: {ctor: '[]'}
-							}),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$div,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$style(
-										{
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'clear', _1: 'both'},
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								},
-								{ctor: '[]'}),
-							_1: {ctor: '[]'}
-						}
+							{ctor: '[]'}),
+						_1: {ctor: '[]'}
 					}
 				}
 			});
