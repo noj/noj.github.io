@@ -1,25 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>noj</title>
+        <style>
+            /* Base setup */
+            :root {
+                --bg-color: #121212;
+                --text-color: #e0e0e0;
+                --accent-color: #38a169; /* Green */
+                --link-hover: #68d391; /* Lighter green */
+                --code-bg: #1e1e1e;
 
-<head>
-  <meta charset="utf-8">
-  <title>noj</title>
-  <style>
-  #countdown {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 20%;
-      font-size: 2rem;
-  }
-  </style>
-</head>
+                /* --bg-color: #ffffff;
+                --text-color: #222222;
+                --accent-color: #2f855a; /* Green */
+                --link-hover: #38a169; /* Brighter green on hover */
+                --font-stack: Courier New, Courier, -apple-system, Roboto;
+            }
 
-<body>
-  <section class="section">
-    <div class="container">
-        {% block content %} {% endblock %}
-    </div>
-  </section>
-</body>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                font-family: var(--font-stack);
+                line-height: 1.6;
+                font-size: 16px;
+            }
 
+            #section {
+                max-width: 680px;
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+
+            h1,
+            h2,
+            h3 {
+                color: var(--accent-color);
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            a {
+                color: var(--accent-color);
+                text-decoration: none;
+                border-bottom: 1px dotted var(--accent-color);
+            }
+
+            a:hover {
+                color: var(--link-hover);
+                border-bottom: 1px solid var(--link-hover);
+            }
+
+            ul {
+                padding-left: 1.2em;
+            }
+
+            code {
+                background: #f4f4f4;
+                padding: 0.2em 0.4em;
+                border-radius: 4px;
+                font-family: monospace;
+            }
+
+            pre {
+                background: #f4f4f4;
+                padding: 1em;
+                overflow-x: auto;
+                border-radius: 6px;
+            }
+
+            /* Optional footer */
+            footer {
+                margin-top: 4rem;
+                text-align: center;
+                font-size: 0.9em;
+                color: #777;
+            }
+
+            #countdown {
+                text-align: center;
+                margin-top: 20%;
+                font-size: 2rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="section">
+            <div class="container">{% block content %} {% endblock %}</div>
+        </section>
+    </body>
 </html>
